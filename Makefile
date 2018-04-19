@@ -6,4 +6,4 @@ FLAGS = -o
 ordenacion: main.o
 	$(CXX) $(FLAGS) ordenacion *.hpp *.cpp
 clean:
-	$(RM) ordenacion *.gch
+	$(RM) ordenacion *.gch *.o

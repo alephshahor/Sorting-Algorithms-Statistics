@@ -146,7 +146,7 @@ int ejecutarAlgoritmo(std::vector<T> v_, int numeroAlgoritmo){
     break;
 
     case 4:
-    return quickSort(v_,0,v_.size(),false);
+    return quickSort(v_,0,v_.size() - 1,false);
     break;
 
     default:
@@ -191,7 +191,7 @@ void modoDemostracion(std::vector<T> v_){
     break;
 
     case 3:
-    numeroComparaciones = quickSort(v_,0,v_.size(),true);
+    numeroComparaciones = quickSort(v_,0,v_.size() - 1,true);
     stillBucle = false;
     break;
 

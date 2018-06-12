@@ -109,35 +109,37 @@ template <class T>
 int particion(std::vector<T>& v_, int lo, int hi, int& contador, bool imprimir){
 
   T pivote = v_[lo];
-  int izq = lo - 1;
-  int dch = hi + 1;
+  int izq = lo;
+  int dch = hi;
 
-  while(true){
 
-    do{
+  while (izq < dch){
+    while (v_[dch] > pivote){
+      contador++;
+      dch--;
+    }
+
+    while ((v_[izq] < pivote) && (izq < dch)){
       izq++;
       contador++;
-    }while(v_[izq] < pivote);
+    }
 
-
-    do{
-       dch--;
-       contador++;
-    }while(v_[dch] > pivote);
-
-
-
-    if (izq >= dch){
-      contador++;
-      return dch;
+    if (izq < dch){
+      swap(izq, dch, v_);
     }
 
     if(imprimir)
     imprimirVector(v_,izq,dch);
 
-    swap(izq, dch, v_);
-
   }
+
+  if(imprimir)
+  imprimirVector(v_,izq,dch);
+
+  swap(izq, dch, v_);
+
+  return dch;
+
 }
 
 /* Algoritmo quicksort*/
